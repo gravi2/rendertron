@@ -92,7 +92,9 @@ export class Renderer {
       }
     }
 
-    const page = await this.browser.newPage();
+    //const page = await this.browser.newPage();
+    const ctx = await this.browser.createIncognitoBrowserContext();
+    const page = await ctx.newPage();
 
     // Page may reload when setting isMobile
     // https://github.com/GoogleChrome/puppeteer/blob/v1.10.0/docs/api.md#pagesetviewportviewport
